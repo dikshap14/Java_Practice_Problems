@@ -1,0 +1,50 @@
+import java.io.*;
+import java.util.*;
+public class CandidateCode {
+    public static void main(String args[] ) throws Exception {
+
+    	//Write code here
+      Scanner sc=new Scanner(System.in);
+      int t=sc.nextInt();
+      while(t!=0){
+      int n=sc.nextInt();
+         int sum=0;
+         int maxsum=0;
+         int a=0,b=0;
+         int tickets[]=new int[n];
+         for(int i=0;i<n;i++){
+            tickets[i]=sc.nextInt();
+         }
+         for(int i=0;i<n;i++){
+            if((i+2)<n){
+               sum=tickets[i]+tickets[i+2];
+               if(sum>maxsum){
+                  maxsum=sum;
+                  if(tickets[i]>a&&tickets[i+2]>b){
+                      a=tickets[i];
+                      b=tickets[i+2];
+                  }
+                  
+               }
+            }
+         }
+         sum=0;
+         
+         for(int i=0;i<n;i++){
+             if(maxsum<tickets[i]){
+                 sum=tickets[i];
+             }
+         }
+         if(maxsum!=0){
+             if(maxsum>sum){
+                 System.out.println(b+""+a);
+             }
+             else{
+                 System.out.println(sum);
+             } 
+         }
+         
+         t--;
+      }
+   }
+}

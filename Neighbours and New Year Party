@@ -1,16 +1,15 @@
-/* package codechef; // don't place package name! */
+/* 
+ * Enter your code here. Read input from STDIN. Print your output to STDOUT. 
+ * Your class should be named CandidateCode.
+*/
 
-import java.util.*;
-import java.lang.*;
 import java.io.*;
+import java.util.*;
+public class CandidateCode {
+    public static void main(String args[] ) throws Exception {
 
-/* Name of the class has to be "Main" only if the class is public. */
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		// your code goes here
-	  Scanner sc=new Scanner(System.in);
+    	//Write code here
+        Scanner sc=new Scanner(System.in);
 	  //No of testcases Input
       int t=sc.nextInt();
       if(t>=1&&t<=10){
@@ -35,7 +34,7 @@ class Codechef
                            sum=tickets[i]+tickets[i+2];
                             if(sum>maxsum){
                                 maxsum=sum;
-                                if(tickets[i]>a&&tickets[i+2]>b){
+                                if(tickets[i]>a || tickets[i+2]>b){
                                    a=tickets[i];
                                    b=tickets[i+2];
                                 }
@@ -63,5 +62,6 @@ class Codechef
                t--;
             }
         }
-	}
+
+   }
 }

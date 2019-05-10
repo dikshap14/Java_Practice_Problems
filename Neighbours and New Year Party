@@ -8,56 +8,51 @@ import java.util.*;
 public class CandidateCode {
     public static void main(String args[] ) throws Exception {
 
-    	//Write code here
-        Scanner sc=new Scanner(System.in);
+    	Scanner sc=new Scanner(System.in);
 	  //No of testcases Input
       int t=sc.nextInt();
       if(t>=1&&t<=10){
             while(t!=0){
-                //No of houses input
+            //No of houses input
                int n=sc.nextInt();
                if(n>=1&&n<=10000){
-                    int sum=-1000;
-                    int maxsum=-1000;
-                    int a=-1000,b=-1000;
+                    int sum1=0; 
+                    String out1="";
+                    int sum2=0;
+                    String out2="";
                     int tickets[]=new int[n];
                     //Tickets array Input
                     for(int i=0;i<n;i++){
                         int num=sc.nextInt();
                         if(num>=-1000 && num<=1000){
                              tickets[i]=num;
+                             
                         }
                     }
-                    //Find maximum alternate sum and the corresponding two digits 
-                    for(int i=0;i<n;i++){
-                        if((i+2)<n){
-                           sum=tickets[i]+tickets[i+2];
-                            if(sum>maxsum){
-                                maxsum=sum;
-                                if(tickets[i]>a || tickets[i+2]>b){
-                                   a=tickets[i];
-                                   b=tickets[i+2];
-                                }
+                  int i=tickets.length-1;
+                  while(i>=0){
+                      sum1=sum1+tickets[i];
+                      if(tickets[i]!=0 && tickets[i]>0){
+                               out1+=tickets[i];
+                               System.out.println("out1 is "+out1);
+                            }
+                      System.out.println("out1 is "+out1);
+                      out1+=tickets[i];
+                        if((i-1)>0){
+                           sum2=sum2+tickets[i-1];
+                           if(tickets[i-1]!=0 && tickets[i-1]>0){
+                               out2+=tickets[i-1];
+                               System.out.println("out2 is "+out2);
                             }
                         }
-                    }
-                    sum=-1000;
-         
-                    for(int i=0;i<n;i++){
-                        if(maxsum<tickets[i]){
-                            if(tickets[i]>sum){
-                                sum=tickets[i];
-                            }
-                        }
-                    }
-                    if(maxsum!=0){
-                       if(maxsum>sum){
-                           System.out.println(b+""+a);
-                       }
-                       else{
-                           System.out.println(sum);
-                       } 
-                    }
+                        i=i-2;
+                   }
+                   if(sum1>sum2){
+                       System.out.println(out1);
+                   }
+                   else{
+                       System.out.println(out2);
+                   }
                 }
                t--;
             }
